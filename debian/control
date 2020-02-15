@@ -1,0 +1,19 @@
+Source: ogre
+Priority: optional
+Maintainer: Arnaud TANGUY <arn.tanguy+ppa@gmail.com>
+Standards-Version: 3.9.5
+Section: misc
+Homepage: https://www.ogre3d.org/
+Vcs-git: https://github.com/OGRECave/ogre
+Vcs-Browser: https://github.com/OGRECave/ogre
+Build-Depends: debhelper (>= 9),
+               pkg-config,
+               cmake,
+               libeigen3-dev
+
+Package: libogre-1.9-dev
+Architecture: any
+Section: libdevel
+Depends: pkg-config,
+         ${misc:Depends}
+Description: Ogre3D engine (v1.9.1) 
