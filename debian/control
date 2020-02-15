@@ -9,11 +9,27 @@ Vcs-Browser: https://github.com/OGRECave/ogre
 Build-Depends: debhelper (>= 9),
                pkg-config,
                cmake,
-               libeigen3-dev
+               doxygen ,
+               libboost-dev,
+               libboost-thread-dev,
+               libfreetype6-dev,
+               libboost-date-time-dev,
+               libboost-thread-dev,
+               nvidia-cg-toolkit,
+               libfreeimage-dev,
+               zlib1g-dev,
+               libzzip-dev,
+               libois-dev,
+               libcppunit-dev,
+               libxt-dev,
+               libxaw7-dev,
+               libxxf86vm-dev,
+               libxrandr-dev,
+               libglu-dev
 
 Package: libogre-1.9-dev
 Architecture: any
 Section: libdevel
 Depends: pkg-config,
          ${misc:Depends}
-Description: Ogre3D engine (v1.9.1) 
+Description: Ogre3D engine (v1.9.1)
