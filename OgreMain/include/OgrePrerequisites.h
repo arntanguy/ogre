@@ -32,7 +32,7 @@ THE SOFTWARE
 #include <string>
 
 // configure memory tracking
-#if OGRE_DEBUG_MODE 
+#if OGRE_DEBUG_MODE
 #	if OGRE_MEMORY_TRACKER_DEBUG_MODE
 #        define OGRE_MEMORY_TRACKER 1
 #	else
@@ -50,8 +50,8 @@ namespace Ogre {
     // Define ogre version
     #define OGRE_VERSION_MAJOR 1
     #define OGRE_VERSION_MINOR 9
-    #define OGRE_VERSION_PATCH 0
-	#define OGRE_VERSION_SUFFIX ""
+    #define OGRE_VERSION_PATCH 1
+	  #define OGRE_VERSION_SUFFIX ""
     #define OGRE_VERSION_NAME "Ghadamon"
 
     #define OGRE_VERSION    ((OGRE_VERSION_MAJOR << 16) | (OGRE_VERSION_MINOR << 8) | OGRE_VERSION_PATCH)
@@ -335,8 +335,8 @@ namespace Ogre
     typedef std::basic_string<char, std::char_traits<char>, STLAllocator<char,GeneralAllocPolicy > >        _StringBase;
     typedef std::basic_stringstream<char,std::char_traits<char>,STLAllocator<char,GeneralAllocPolicy > >    _StringStreamBase;
 
-	#define StdStringT(T) std::basic_string<T, std::char_traits<T>, std::allocator<T> >	
-	#define CustomMemoryStringT(T) std::basic_string<T, std::char_traits<T>, STLAllocator<T,GeneralAllocPolicy> >	
+	#define StdStringT(T) std::basic_string<T, std::char_traits<T>, std::allocator<T> >
+	#define CustomMemoryStringT(T) std::basic_string<T, std::char_traits<T>, STLAllocator<T,GeneralAllocPolicy> >
 
 	template<typename T>
 	bool operator <(const CustomMemoryStringT(T)& l,const StdStringT(T)& o)
@@ -445,8 +445,8 @@ namespace Ogre
 
 }
 
-#if OGRE_STRING_USE_CUSTOM_MEMORY_ALLOCATOR 
-namespace std 
+#if OGRE_STRING_USE_CUSTOM_MEMORY_ALLOCATOR
+namespace std
 {
 #if (OGRE_COMPILER == OGRE_COMPILER_GNUC && OGRE_COMP_VER >= 430) || OGRE_COMPILER == OGRE_COMPILER_CLANG && !defined(STLPORT) && __cplusplus < 201103L
 	namespace tr1
@@ -475,12 +475,12 @@ namespace std
 
 //for stl container
 namespace Ogre
-{ 
-	template <typename T, typename A = STLAllocator<T, GeneralAllocPolicy> > 
-	struct deque 
-	{ 
+{
+	template <typename T, typename A = STLAllocator<T, GeneralAllocPolicy> >
+	struct deque
+	{
 #if OGRE_CONTAINERS_USE_CUSTOM_MEMORY_ALLOCATOR
-        typedef typename std::deque<T, A> type;    
+        typedef typename std::deque<T, A> type;
         typedef typename std::deque<T, A>::iterator iterator;
         typedef typename std::deque<T, A>::const_iterator const_iterator;
 #else
@@ -488,11 +488,11 @@ namespace Ogre
         typedef typename std::deque<T>::iterator iterator;
         typedef typename std::deque<T>::const_iterator const_iterator;
 #endif
-	}; 
+	};
 
-	template <typename T, typename A = STLAllocator<T, GeneralAllocPolicy> > 
-	struct vector 
-	{ 
+	template <typename T, typename A = STLAllocator<T, GeneralAllocPolicy> >
+	struct vector
+	{
 #if OGRE_CONTAINERS_USE_CUSTOM_MEMORY_ALLOCATOR
         typedef typename std::vector<T, A> type;
         typedef typename std::vector<T, A>::iterator iterator;
@@ -502,11 +502,11 @@ namespace Ogre
         typedef typename std::vector<T>::iterator iterator;
         typedef typename std::vector<T>::const_iterator const_iterator;
 #endif
-	}; 
+	};
 
-	template <typename T, typename A = STLAllocator<T, GeneralAllocPolicy> > 
-	struct list 
-	{ 
+	template <typename T, typename A = STLAllocator<T, GeneralAllocPolicy> >
+	struct list
+	{
 #if OGRE_CONTAINERS_USE_CUSTOM_MEMORY_ALLOCATOR
         typedef typename std::list<T, A> type;
         typedef typename std::list<T, A>::iterator iterator;
@@ -516,11 +516,11 @@ namespace Ogre
         typedef typename std::list<T>::iterator iterator;
         typedef typename std::list<T>::const_iterator const_iterator;
 #endif
-	}; 
+	};
 
-	template <typename T, typename P = std::less<T>, typename A = STLAllocator<T, GeneralAllocPolicy> > 
-	struct set 
-	{ 
+	template <typename T, typename P = std::less<T>, typename A = STLAllocator<T, GeneralAllocPolicy> >
+	struct set
+	{
 #if OGRE_CONTAINERS_USE_CUSTOM_MEMORY_ALLOCATOR
         typedef typename std::set<T, P, A> type;
         typedef typename std::set<T, P, A>::iterator iterator;
@@ -530,11 +530,11 @@ namespace Ogre
         typedef typename std::set<T, P>::iterator iterator;
         typedef typename std::set<T, P>::const_iterator const_iterator;
 #endif
-	}; 
+	};
 
-	template <typename K, typename V, typename P = std::less<K>, typename A = STLAllocator<std::pair<const K, V>, GeneralAllocPolicy> > 
-	struct map 
-	{ 
+	template <typename K, typename V, typename P = std::less<K>, typename A = STLAllocator<std::pair<const K, V>, GeneralAllocPolicy> >
+	struct map
+	{
 #if OGRE_CONTAINERS_USE_CUSTOM_MEMORY_ALLOCATOR
         typedef typename std::map<K, V, P, A> type;
         typedef typename std::map<K, V, P, A>::iterator iterator;
@@ -544,11 +544,11 @@ namespace Ogre
         typedef typename std::map<K, V, P>::iterator iterator;
         typedef typename std::map<K, V, P>::const_iterator const_iterator;
 #endif
-	}; 
+	};
 
-	template <typename K, typename V, typename P = std::less<K>, typename A = STLAllocator<std::pair<const K, V>, GeneralAllocPolicy> > 
-	struct multimap 
-	{ 
+	template <typename K, typename V, typename P = std::less<K>, typename A = STLAllocator<std::pair<const K, V>, GeneralAllocPolicy> >
+	struct multimap
+	{
 #if OGRE_CONTAINERS_USE_CUSTOM_MEMORY_ALLOCATOR
         typedef typename std::multimap<K, V, P, A> type;
         typedef typename std::multimap<K, V, P, A>::iterator iterator;
@@ -558,7 +558,7 @@ namespace Ogre
         typedef typename std::multimap<K, V, P>::iterator iterator;
         typedef typename std::multimap<K, V, P>::const_iterator const_iterator;
 #endif
-	}; 
+	};
 
 } // Ogre
 
